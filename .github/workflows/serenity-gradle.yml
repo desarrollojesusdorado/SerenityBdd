@@ -23,6 +23,9 @@ jobs:
       - name: Grant execute permissions to Gradle wrapper
         run: chmod +x gradlew
 
+      - name: Build the project
+        run: ./gradlew build -x test --info
+
       - name: Run tests with Gradle
         run: ./gradlew clean test aggregate --info
 
