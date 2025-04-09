@@ -39,19 +39,19 @@ jobs:
           name: serenity-report
           path: target/site/serenity
 
-      - name: Deploy Serenity Report to GitHub Pages
-        if: success()
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
+      #- name: Deploy Serenity Report to GitHub Pages
+      #  if: success()
+      #  run: |
+      #    git config --global user.name 'github-actions'
+      #    git config --global user.email 'github-actions@github.com'
 
-          git clone --depth 1 --branch gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages || git clone --depth 1 https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
-          cd gh-pages
-          git checkout -b gh-pages || git checkout gh-pages
+      #    git clone --depth 1 --branch gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages || git clone --depth 1 https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+       #   cd gh-pages
+       #   git checkout -b gh-pages || git checkout gh-pages
 
-          rm -rf ./*
-          cp -r ../target/site/serenity/* ./
+       #   rm -rf ./*
+        #  cp -r ../target/site/serenity/* ./
 
-          git add .
-          git commit -m "🚀 Update Serenity Report [skip ci]" || echo "Nothing to commit"
-          git push origin gh-pages
+         # git add .
+         # git commit -m "🚀 Update Serenity Report [skip ci]" || echo "Nothing to commit"
+         # git push origin gh-pages
